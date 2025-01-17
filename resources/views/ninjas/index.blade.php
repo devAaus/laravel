@@ -4,7 +4,7 @@
    <ul>
       @foreach($ninjas as $ninja)
          <li>
-            <x-card href="/ninjas/{{ $ninja->id }}" :highlight="true">
+            <x-card href="{{ route('ninjas.show', $ninja->id) }}" :highlight="true">
                <h3>{{ $ninja->name }}</h3>
             </x-card>
          </li>

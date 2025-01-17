@@ -1,10 +1,4 @@
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Blogs | Home</title>
-</head>
-<body>
+<x-layout>
    <h2>All Ninjas</h2>
    @if($greeting == "hello")
       <p>hello ninjas</p>
@@ -18,5 +12,4 @@
          </li>
       @endforeach
    </ul>
-</body>
-</html>
+</x-layout>

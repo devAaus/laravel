@@ -14,7 +14,7 @@ Route::get('/ninjas', function () {
         ['name' => 'Yagyu', 'age' => 20, 'occupation' => 'Samurai', 'id' => '3'],
     ];
 
-    return view('ninjas.index', ["greeting" => "hello", "ninjas" => $ninjas]);
+    return view('ninjas.index', ["ninjas" => $ninjas]);
 });
 
 Route::get('/ninjas/create', function () {

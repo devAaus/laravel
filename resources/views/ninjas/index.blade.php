@@ -1,14 +1,12 @@
 <x-layout>
    <h2>All Ninjas</h2>
-   @if($greeting == "hello")
-      <p>hello ninjas</p>
-   @endif
 
    <ul>
       @foreach($ninjas as $ninja)
          <li>
-            <h2>{{$ninja['name']}}</h2>
-            <a href="/ninjas/{{$ninja['id']}}">View Details</a>
+            <x-card href="/ninjas/{{ $ninja['id'] }}" :highlight="true">
+               <h3>{{ $ninja['name'] }}</h3>
+            </x-card>
          </li>
       @endforeach
    </ul>

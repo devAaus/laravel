@@ -5,19 +5,18 @@
    <title>Blogs | Home</title>
 </head>
 <body>
-   <h2>All Blogs</h2>
-   <p>{{ $greeting }}</p>
+   <h2>All Ninjas</h2>
+   @if($greeting == "hello")
+      <p>hello ninjas</p>
+   @endif
+
    <ul>
-      <li>
-         <a href="/ninjas/{{$ninjas[0]["id"]}}">
-            {{ $ninjas[0]["name"] }}
-         </a>
-      </li>
-      <li>
-         <a href="/ninjas/{{$ninjas[1]["id"]}}">
-            {{ $ninjas[1]["name"] }}
-         </a>
-      </li>
+      @foreach($ninjas as $ninja)
+         <li>
+            <h2>{{$ninja['name']}}</h2>
+            <a href="/ninjas/{{$ninja['id']}}">View Details</a>
+         </li>
+      @endforeach
    </ul>
 </body>
 </html>

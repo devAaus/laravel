@@ -5,11 +5,11 @@
     <title>Laravel </title>
 </head>
 <body>
-    <h1>Welcome to the new laravel blog app</h1>
-    <p>Click button to view list of blogs</p>
+    <h1>Welcome to the new laravel</h1>
+    <p>Click button to view list of ninjas</p>
 
-    <a href="/blogs" class="btn">
-        Find Blogs
+    <a href="/ninjas" class="btn">
+        Find Ninjas
     </a>
 </body>
 </html>

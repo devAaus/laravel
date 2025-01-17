@@ -2,12 +2,9 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Blogs | Home</title>
+   <title>Ninja Network</title>
 </head>
 <body>
-   <h2>All Blogs</h2>
-   <ul>
-      <li>Hello</li>
-   </ul>
+   <h2>Ninja id - {{$id}}</h2>
 </body>
 </html>

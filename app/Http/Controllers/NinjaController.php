@@ -2,34 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ninja;
 use Illuminate\Http\Request;
+use App\Models\Ninja;
+use App\Models\Dojo;
 
 class NinjaController extends Controller
 {
-    public function index() {
-        // Get all ninjas with their dojos and order by creation date in descending order.
-        // route --> /ninjas/
-        $ninjas = Ninja::with('dojo')->orderBy('created_at', 'desc')->paginate(10);
+   public function index() {
+      // route --> /ninjas/
+      $ninjas = Ninja::with('dojo')->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('ninjas.index', ["ninjas" => $ninjas]);
-    }
+      return view('ninjas.index', ['ninjas' => $ninjas]);
+   }
 
-    public function show($id) {
-        // Get the ninja with the given ID and their dojo.
-        // route --> /ninjas/{id}
-        $ninja = Ninja::with('dojo')->findOrFail($id);
+   public function show($id) {
+      // route --> /ninjas/{id}
+      $ninja = Ninja::with('dojo')->findOrFail($id);
 
-        return view('ninjas.show', ["ninja" => $ninja]);
-    }
+      return view('ninjas.show', ['ninja' => $ninja]);
+   }
 
-    public function create() {
-        // Show the form to create a new ninja.
-        // route --> /ninjas/create
-        return view('ninjas.create');
-    }
+   public function create() {
+      // route --> /ninjas/create
+      $dojos = Dojo::all();
 
-    public function store() {
+      return view('ninjas.create', ['dojos' => $dojos]);
+   }
 
-    }
+   public function store(Request $request) {
+      // --> /ninjas/ (POST)
+      $validated = $request->validate([
+         'name' => 'required|string|max:255',
+         'skill' => 'required|integer|min:0|max:100',
+         'bio' => 'required|string|min:20|max:1000',
+         'dojo_id' => 'required|exists:dojos,id',
+      ]);
+
+      Ninja::create($validated);
+
+      return redirect()->route('ninjas.index');
+   }
+
+   public function destroy($id) {
+      // --> /ninjas/{id} (DELETE)
+      // handle delete request to delete a ninja record from table
+   }
+
+    // edit() and update() for edit view and update requests
+    // we won't be using these routes
 }

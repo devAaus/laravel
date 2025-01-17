@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ninja extends Model
 {
-    protected $fillable = ['name', 'skill', 'bio'];
-    
+    protected $fillable = ['name', 'skill', 'bio', 'dojo_id'];
+
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
     use HasFactory;
 
-    public function dojo() {
+    public function dojo()
+    {
         return $this->belongsTo(Dojo::class);
     }
 }

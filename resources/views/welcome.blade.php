@@ -8,7 +8,7 @@
     <h1>Welcome to the new laravel blog app</h1>
     <p>Click button to view list of blogs</p>
 
-    <a href="" class="btn">
+    <a href="/blogs" class="btn">
         Find Blogs
     </a>
 </body>
